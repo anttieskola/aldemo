@@ -16,7 +16,6 @@ namespace aldemo.generate
         {
             using (AssemblyContext ac = new AssemblyContext())
             {
-                // status
                 // projects
                 foreach (var p in ac.Projects)
                 {
@@ -67,7 +66,43 @@ namespace aldemo.generate
                 ac.SaveChanges();
 
                 // statuses
+                int counter = 0;
+                foreach (var p in projects)
+                {
+                    foreach (var l in p.Lines)
+                    {
+                        Status s = new Status
+                        {
+                            Project = p,
+                            Line = l,
+                            Text = randomColor()
+                        };
+                        ac.Entry<Status>(s).State = EntityState.Added;
+                        if (counter++ > 100)
+                        {
+                            ac.SaveChanges();
+                            counter = 0;
+                        }
+                    }
+                }
+                ac.SaveChanges();
             }
+        }
+
+        /// <summary>
+        /// color table
+        /// </summary>
+        private static string[] COLORS = { "red", "yellow", "orange", "green", "blue"};
+
+        /// <summary>
+        /// random color from table
+        /// </summary>
+        /// <returns></returns>
+        private static string randomColor()
+        {
+            Random r = new Random();
+            int i = r.Next(0, COLORS.Length);
+            return COLORS[i];
         }
     }
 }

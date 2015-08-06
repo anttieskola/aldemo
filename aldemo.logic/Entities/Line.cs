@@ -7,7 +7,7 @@ namespace aldemo.logic.Entities
 {
     public class Line
     {
-        public int Id { get; set; }
+        public int id { get; set; }
 
         public string Name { get; set; }
 

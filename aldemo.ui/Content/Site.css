@@ -7,6 +7,8 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -15,3 +17,24 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* Antti */
+.statusDiv {
+    border: 1px solid black;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.statusContextMenu {
+    background-color: white;
+    border: 2px solid black;
+    padding: 4px;
+}
+
+.statusContextMenuItem {
+    cursor: pointer;
+}
+
+    .statusContextMenuItem:hover {
+        background-color: #00ffff;
+    }

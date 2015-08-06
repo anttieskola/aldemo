@@ -9,7 +9,7 @@ namespace aldemo.generate.tests
         [TestMethod]
         public void Generate()
         {
-            Generator.Run(10, 10);
+            Generator.Run(100, 100);
         }
         [TestMethod]
         public void Cleanup()
